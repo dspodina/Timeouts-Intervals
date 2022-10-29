@@ -23,21 +23,16 @@ document.addEventListener('DOMContentLoaded',function(event){
 });
 
 // Task 2
-var secs, now, timer,
-    mins = 0
-function time(){
-  secs = Math.floor((Date.now() - now)/1000)
-  if(secs == 60 ){
-    now = Date.now()
-    mins++
-  }
-  if(secs < 10){
-    secs = '0' + secs
-  }
-  timerid.innerHTML = mins + ':' + secs
-}
-start.onclick = function(){
-  now = Date.now()
-  mins = 0
-  timer = setInterval(time)
-}
+let secs = 0;
+let mins = 0;
+setInterval (() => {
+ secs += 1
+ timerid.innerHTML = mins + ':' + secs
+ if (secs >= 60) {
+  secs = 0;
+  mins += 1;
+alert(`a ${mins==1?'minute has':`${mins} minutes have`} passed`);
+ }
+},100)
+
+// Task
